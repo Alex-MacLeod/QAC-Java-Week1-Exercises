@@ -1,0 +1,10 @@
+Bob 45 builder
+
+Colin 34 civil servant
+
+Abdul 24 software developer
+
+Emily 76 retiree
+
+Donna 18 student
+

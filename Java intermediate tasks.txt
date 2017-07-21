@@ -1,0 +1,304 @@
+public class HelloWorld {	
+	public static void main(String[] args) {
+
+//12 Blackjack
+		int a = 22;
+		int b = 4;
+		System.out.println(blackJack(a,b));
+	}
+	public static int blackJack(int A, int B){
+				if (A>21 & B>21) {
+					return 0;
+				} else if (A>B && A<21 || B>21) {
+					return A;
+				} else {
+					return B;
+			}
+		}
+}	
+
+//13 Unique Sum
+		int a = 1;
+		int b = 1;
+		int c = 1;
+		System.out.println(uniqueSum(a,b,c));
+	}
+	public static int uniqueSum(int A, int B, int C){
+				if (A==B&&B==C) {
+					return 0;
+				} else if (A==B) {
+					return C;
+				} else if (B==C) {
+					return A;
+				} else if (A==C) {
+					return B;
+				} else {
+					return A+B+C;
+				}
+		}
+}			
+
+//14 Too Hot?
+		int temperature = 105;
+		boolean isSummer = true;
+		System.out.println(tooHot(temperature,isSummer));
+	}
+	public static boolean tooHot(int T, boolean S){
+		if (S) {
+			if (T<60|T>100) {
+				return false;
+			} else {
+				return true;
+			}
+		} else {
+			if (T<60|T>90) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+	}
+}	
+
+
+//15 People
+
+public class People {
+	public People(String a, int b, String c) {
+		name = a;
+		age = b;
+		jobTitle = c;
+	}
+	String name;
+	int age;
+	String jobTitle;
+	public String details () {
+		return "My name is " + name + ", I'm " + age + " years old, and I'm a " + jobTitle;
+	}
+}
+
+public class Mainppl {
+	public static void main(String[] args) {
+		People p1= new People("Bob", 45, "builder");
+		People p2= new People("Colin", 34, "civil servant");
+		People p3= new People("Greg", 50, "plumber");
+		People p4= new People("Abdul", 24, "software developer");
+		People p5= new People("Donna", 18, "student");
+		People p6= new People("Emily", 76, "retiree");
+		People p7= new People("Fatima", 24, "lawyer");
+		People p8= new People("Olivia", 5, "child");
+		People[] array = {p1, p2, p3, p4, p5, p6, p7, p8};
+		for (int i=0; i<array.length; i++) {
+			System.out.println(array[i].details());
+		}
+	}
+
+}
+
+//16 Garage
+
+public abstract class Vehicle {
+	String make;					//define attributes
+	int maxSpeed;
+	int horsepower;
+	String fuelType;
+	String colour;
+	boolean automatic;
+	int runningCost;
+	int mileage;
+	boolean insured;
+	String model;
+	String numberPlate;
+	boolean needsRepair;
+	
+	public Vehicle(String a, int b, int c, String d, String e, boolean f, int g, int h, boolean k, String l, String n, boolean r) {				
+			make = a;
+			maxSpeed = b;
+			horsepower = c;
+			fuelType = d;
+			colour = e;
+			automatic = f;
+			runningCost = g;
+			mileage = h;
+			insured = k;
+			model = l;
+			numberPlate = n;
+			needsRepair = r;
+		}
+	public int totalCost() {				//Calculates total monthly cost for each object
+			if (insured) {
+			switch (fuelType) {
+				case "diesel":
+					if (mileage > 10000) {
+						return 750 + runningCost;
+					} else if (mileage < 10000 & mileage > 5000) {
+						return 675 + runningCost;
+					} else {
+						return 600 + runningCost;
+					}
+				case "unleaded":
+					if (mileage > 10000) {
+						return 600 + runningCost;
+					} else if (mileage < 10000 & mileage > 5000) {
+						return 550 + runningCost;
+					} else {
+						return 500 + runningCost;	
+					}
+				case "hybrid": 
+					if (mileage > 10000) {
+						return 275 + runningCost;
+					} else if (mileage < 10000 & mileage > 5000) {
+						return 235 + runningCost;
+					} else {
+						return 200 + runningCost;
+					}
+				default:
+					return  runningCost;
+				}
+			} else {
+				return runningCost*10;
+			}
+		}
+	public int repairCost() {							//Calculates repair cost for each object
+			if (needsRepair) {
+					if (runningCost > 1500) {
+						return runningCost*50;
+					} else if (runningCost < 1500 & runningCost > 900) {
+						return runningCost*30;
+					} else if (runningCost < 900 & runningCost > 600) {
+						return runningCost*15;
+					} else {
+						return runningCost*7;
+					}
+			} else {
+				return 0;
+			}
+		}
+}
+public class Car extends Vehicle{
+	boolean fourWheelDrive;
+	boolean sunroof;
+	public Car(String a, int b, int c, String d, String e, boolean f, int g, int h, boolean k, String l, String n, boolean r, boolean z, boolean y) {
+		super(a, b, c, d, e, f, g, h, k, l, n, r);
+		fourWheelDrive = z;
+		sunroof = y;
+	}
+}
+public class Motorcycle extends Vehicle{
+	boolean muffled;
+	public Motorcycle(String a, int b, int c, String d, String e, boolean f, int g, int h, boolean k, String l, String n, boolean r, boolean x) {
+		super(a, b, c, d, e, f, g, h, k, l, n, r);
+		muffled = x;
+	}
+}
+public class Lorry extends Vehicle{
+	int maxFreight;
+	int height;
+	public Lorry(String a, int b, int c, String d, String e, boolean f, int g, int h, boolean k, String l, String n, boolean r, int v, int w) {
+		super(a, b, c, d, e, f, g, h, k, l, n, r);
+		maxFreight = v;
+		height = w;
+	}
+}
+import java.util.ArrayList;
+import java.util.List;
+
+public class Garage {
+	public static void main(String[] args) {
+		Car c1 = new Car("Ford", 150, 560, "unleaded", "grey", false, 300, 15046, false, "Fiesta", "AB1 3CK", true, false, false);					//create objects
+		Car c2 = new Car("Lamborghini", 250, 2460, "unleaded", "yellow", false, 1750, 335, true, "Aventador", "M0N 33Y", false, false, true);
+		Lorry l1 = new Lorry("Volvo", 100, 600, "diesel", "blue", false, 530, 24405, true, "FH12", "GR1 3TY", false, 1500, 15);
+		Motorcycle m1 = new Motorcycle("Suzuki", 175, 360, "unleaded", "black", true, 250, 3460, true, "Hayabusa", "AI1 0WW", true, true);
+		
+		Vehicle[] array = {c1, c2, l1, m1};
+		List<Vehicle> garage = new ArrayList<Vehicle>();														//create ArrayList
+		for (int i=0; i<array.length; i++) {																//add objects to ArrayList
+			garage.add(array[i]);
+			}
+		
+		for (int v=0; v<garage.size(); v++) {
+	    	if(garage.get(v).numberPlate == "M0N 34Y")															//remove objects from ArrayList
+	    		garage.remove(v);
+			}
+	    
+		Scanner sc = new Scanner (System.in);																//remove objects from ArrayList (using Scanner, console)
+		System.out.println("Which car do you wish to remove?");
+		String input = sc.nextLine();
+		for (int v=garage.size()-1; v>=0; v--) {
+			if (garage.get(v).numberPlate == input)
+				garage.remove(v);
+			}
+	    
+	   	 for (int v=garage.size()-1; v>=0; v--) {															//remove all objects
+	    		garage.remove(v);
+			}
+	    
+	 	 for (int v=0; v<garage.size(); v++) {																//print repair costs
+	    		if(garage.get(v).needsRepair)
+	    			System.out.println("Repairing the " + garage.get(v).make + " " + garage.get(v).model + " will cost £" + garage.get(v).repairCost());
+	  		}
+	    
+	         if (garage.isEmpty()==true) {
+			System.out.println("No vehicles in garage.");														//print if garage is empty
+		 } else {
+			for (int j=0; j<garage.size(); j++) {
+				System.out.println("The total monthly cost of running the " + garage.get(j).make + " " + garage.get(j).model + " is £" + garage.get(j).totalCost());		//print total running costs
+			}
+		 }
+	}
+}
+
+//17 Paint Wizard
+
+public class Paint {
+	double costPerTin;
+	int litresPerTin;
+	String productName;
+	int areaPerLitre;
+	
+	public Paint(String a, double e, int c, int d) {
+		productName = a;
+		costPerTin = e;
+		litresPerTin = c;
+		areaPerLitre = d;
+	}
+	double roomSize = 220;									//declare area of room to be painted
+	public int coverage(){									//coverage = area/tin, # m^2 a single tin can paint
+		return areaPerLitre*litresPerTin;
+	}
+	public double tinsPerRoom(){							//#tins required to paint room
+		 return roomSize/coverage();
+	}
+	public double paintRoom(){								//cost of painting room
+		return Math.ceil(tinsPerRoom())*costPerTin;
+	}	
+}
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RunPaint {
+	
+	public static void main(String[] args) {
+		Paint p1 = new Paint("CheapoMax", 19.99, 20, 10);										//create objects
+		Paint p2 = new Paint("AverageJoes", 17.99, 15, 11);
+		Paint p3 = new Paint("DuluxourousPaints", 25, 10, 20);
+		
+		Paint[] array = {p1, p2, p3};
+		List<Paint> paint = new ArrayList<Paint>();												//create ArrayList of paints
+		for (int i=0; i<array.length; i++) {													//add objects to ArrayList
+			paint.add(array[i]);
+			}
+		int index = 0;
+		double cheapest = 100000;																//define index and cheapest as numbers for min function
+		for (int i=0; i<paint.size(); i++) {
+			System.out.println("Painting the room with  " + paint.get(i).productName + " will cost £" + paint.get(i).paintRoom());
+			if(paint.get(i).paintRoom() < cheapest) {
+				cheapest = paint.get(i).paintRoom();											//by end of loop, cheapest will equal smallest cost
+				index = i;																		//by end of loop, index will equal index of smallest cost
+				}
+		}
+		System.out.println("Using " + array[index].productName + " paint will cost the least for this room");		//find productName and print
+		
+	}
+}

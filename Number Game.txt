@@ -1,0 +1,36 @@
+//Number Game
+
+import java.util.Scanner;
+
+public class NumberGame {
+
+	public static void main(String[] args) {
+		
+		String f = " ";
+		int min = 0;
+		int max = 100;
+		
+		@SuppressWarnings("resource")
+		Scanner scan = new Scanner(System.in);           
+        int guess = 50;
+        System.out.println ("Hello!");
+        System.out.println ("My first guess is " + guess + ".");
+		while (!(f.equals("CORRECT"))) {
+			System.out.println ("Is it HIGHER, LOWER, or CORRECT?");
+			f = scan.nextLine();
+			if (f.equals("LOWER")) {
+        		max = guess;
+        	} else if (f.equals("HIGHER")) {
+        		min = guess;
+        	} else {
+        		System.out.println ("Sorry, I didn't understand that.");
+        		continue;
+        	}
+			int randomNum = (int) Math.ceil(min + Math.random()*max);
+			guess = randomNum;
+			System.out.println ("My next guess is " + guess + ".");
+        }
+        System.out.println ("Hooray! That was a fun game!");
+	}
+
+}
