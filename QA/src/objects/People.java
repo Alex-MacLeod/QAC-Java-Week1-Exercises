@@ -12,8 +12,7 @@ public class People {
 	public String details () {
 		return "My name is " + name + ", I'm " + age + " years old, and I'm a " + jobTitle;
 	}
-	@Override
-	public String toString() {
-		return name + " " + age +" " + jobTitle + "\n";
+	public String peopleWrite() {
+		return name + ", " + age +", " + jobTitle + "\n";
 	}
 }
