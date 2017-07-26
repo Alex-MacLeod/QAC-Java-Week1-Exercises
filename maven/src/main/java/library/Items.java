@@ -1,6 +1,6 @@
 package library;
 
-public abstract class Items {
+public abstract class Items implements Library {
 	String name;					//define attributes
 	int iD;
 	String author;
@@ -15,7 +15,7 @@ public abstract class Items {
 			this.onLoan = onLoan;
 			this.loanExpiry = loanExpiry;
 		}
-		public String getName() {
+		public String getName() {		//define get and set methods
 			return name;
 		}
 		public void setName(String name) {
@@ -51,7 +51,7 @@ public abstract class Items {
 		public void setLoanExpiry(int loanExpiry) {
 			this.loanExpiry = loanExpiry;
 		}
-		public String writeDetails() {
+		public String writeDetails() { 	//for write/read feature, overloaded in Books, Magazines, maps, Records
 				return name + ", " + iD +", " + author +", " + year +", " + onLoan +", " + loanExpiry +"\n";
 		}
 }

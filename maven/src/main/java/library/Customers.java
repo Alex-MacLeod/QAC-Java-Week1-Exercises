@@ -1,6 +1,6 @@
 package library;
 
-public class Customers {
+public class Customers implements Library {
 	String forename;
 	String surname;
 	String dateOfBirth;
