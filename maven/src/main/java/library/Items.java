@@ -1,6 +1,6 @@
 package library;
 
-public abstract class Items implements Library {
+public abstract class Items {
 	String name;					//define attributes
 	int iD;
 	String author;

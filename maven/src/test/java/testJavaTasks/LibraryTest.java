@@ -15,12 +15,12 @@ import org.junit.Test;
 import library.Books;
 import library.Customers;
 import library.Items;
-import library.Main;
+import library.Library;
 
 @SuppressWarnings("unused")
 public class LibraryTest {
 	
-	Main test = new Main();
+	Library test = new Library();
 	
 	@Test
 	public void testAddNew() {
@@ -143,7 +143,7 @@ public class LibraryTest {
 		testIArray.add(testBook2);
 		String[] A = new String[testIArray.size()];
 		try {
-			testWrite = new PrintWriter("C:\\Users\\Administrator\\Documents\\test.txt", "UTF-8");
+			testWrite = new PrintWriter("C:\\Users\\Administrator\\Documents\\testWrite.txt", "UTF-8");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
@@ -160,8 +160,9 @@ public class LibraryTest {
 		Scanner testScan = null;
 		Books testBook = new Books("Java is fun", 461246, "Deaglan Lynch", 2017, false, 0, false, false, false, true);
 		String[] A = {"Books"};
+		
 		try {
-			testScan = new Scanner(new File("C:\\Users\\Administrator\\Documents\\test.txt"));
+			testScan = new Scanner(new File("C:\\Users\\Administrator\\Documents\\testRead.txt"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -170,16 +171,14 @@ public class LibraryTest {
 		assertEquals(testBook.getID(), testArrayReadToContents.get(0).getID());
 	}
 	
-	@Ignore
+	@Test
 	public void testContents() {
 		ArrayList<Items> testIArray = new ArrayList<Items>();
 		ArrayList<Items> testArrayContents = new ArrayList<Items>();
 		Books testBook = new Books("Java is fun", 461246, "Deaglan Lynch", 2017, false, 0, false, false, false, true);
-		Books testBook2 = new Books("10 Ways that Learning Java makes you Cool", 67836, "Deaglan Lynch", 2017, true, 10, false, false, false, false);
 		testIArray.add(testBook);
-		testIArray.add(testBook2);
 		
 		test.contents(testIArray, testArrayContents);
-		assertEquals(testBook2.getID(), testArrayContents.get(0).getID());
+		assertEquals(testBook.getID(), testArrayContents.get(0).getID());
 	}
 }

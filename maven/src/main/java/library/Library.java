@@ -7,9 +7,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public interface Library {
+public class Library {
 
-	public default Items search(ArrayList<Items> library, String name) { // define method to search library
+	public Items search(ArrayList<Items> library, String name) { // define method to search library
 		for (int i = 0; i < library.size(); i++) {
 			if (library.get(i).name.equals(name)) {
 				return library.get(i);
@@ -18,7 +18,7 @@ public interface Library {
 		return null;
 	}
 
-	public default Customers search(ArrayList<Customers> customers, int iD) { // define method to search library
+	public Customers search(ArrayList<Customers> customers, int iD) { // define method to search library
 		for (int i = 0; i < customers.size(); i++) {
 			if (customers.get(i).customerID == iD) {
 				return customers.get(i);
@@ -27,25 +27,25 @@ public interface Library {
 		return null;
 	}
 	
-	public default void addNew(Items t, ArrayList<Items> library) {		// add new item
+	public void addNew(Items t, ArrayList<Items> library) {		// add new item
 		library.add(t);
 	}
 	
-	public default void addNew(Customers c, ArrayList<Customers> customers) {	// add new customer
+	public void addNew(Customers c, ArrayList<Customers> customers) {	// add new customer
 		customers.add(c);
 	}
 	
-	public default void remove(ArrayList<Items> library, String remove) { // remove Items from library by name
+	public void remove(ArrayList<Items> library, String remove) { // remove Items from library by name
 		library.remove(search(library, remove));
 		System.out.println("Item removed");
 	}
 	
-	public default void remove(ArrayList<Customers> customers, int remove) { // remove Customers from library by name
+	public void remove(ArrayList<Customers> customers, int remove) { // remove Customers from library by name
 		customers.remove(search(customers, remove));
 		System.out.println("Customer removed");
 	}
 
-	public default void updateItemByName(ArrayList<Items> library, String update, String name, int iD, String author, int year, boolean onLoan,
+	public void updateItemByName(ArrayList<Items> library, String update, String name, int iD, String author, int year, boolean onLoan,
 			int loanExpiry) { // update Item
 		Items x = search(library, update);
 		x.setName(name);
@@ -57,7 +57,7 @@ public interface Library {
 		System.out.println("Item updated");
 	}
 	
-	public default void updateCustomerByID(ArrayList<Customers> customers, int update, String forename, String surname, String dateOfBirth, 
+	public void updateCustomerByID(ArrayList<Customers> customers, int update, String forename, String surname, String dateOfBirth, 
 			int customerID, String address1, String address2, String address3, String postCode) { // update a customer
 		Customers y = search(customers, update);
 		y.setForename(forename);
@@ -71,7 +71,7 @@ public interface Library {
 		System.out.println("Customer updated");
 	}
 	
-	public default void checkOutItem(ArrayList<Items> library, Customers c, String name) { // check out Item
+	public void checkOutItem(ArrayList<Items> library, Customers c, String name) { // check out Item
 		if (search(library, name).onLoan == false) {
 			Items a = search(library, name);
 			a.setOnLoan(true);
@@ -83,7 +83,7 @@ public interface Library {
 		}
 	}
 
-	public default void checkInItem(Items t, Customers c) { // check in Item
+	public void checkInItem(Items t, Customers c) { // check in Item
 		t.setOnLoan(false);
 		t.setLoanExpiry(0);
 		System.out.println("Thank you " + c.forename);
@@ -115,23 +115,25 @@ public interface Library {
 	
 	ArrayList<Items> libraryContents = new ArrayList<Items>();
 	
-	public default void writeContents(ArrayList<Items> library, PrintWriter write, String[] Z) { //write library contents to file
+	public void writeContents(ArrayList<Items> library, PrintWriter write, String[] Z) { //write library contents to file
 		for (Items t : library) {
 			write.println(t.writeDetails());
 			Z[library.indexOf(t)] = t.getClass().getSimpleName();
 		}
 	}
 	
-	public default void readToLibraryContents(Scanner scan, String[] Z, ArrayList<Items> libraryContents) {	//
+	public void readToLibraryContents(Scanner scan, String[] Z, ArrayList<Items> libraryContents) {	//
 		String line = "";
 		int k=0;
 		while (scan.hasNextLine() && (line = scan.nextLine()) != "") {
 			if (line != "" && line != "\n"&& line.length() > 1) {
-				String[] splitInput = line.split(", ");int parsedID = Integer.parseInt(splitInput[1]);
+				String[] splitInput = line.split(", ");
+				int parsedID = Integer.parseInt(splitInput[1]);
 				int parsedYear = Integer.parseInt(splitInput[3]);
 				boolean parsedOnLoan = Boolean.parseBoolean(splitInput[4]);
 				int parsedLoanExpiry = Integer.parseInt(splitInput[5]);
-				if (Z[k] == "Books") {
+				
+				if (Z[k].equals("Books")) {
 					boolean parsedFiction = Boolean.parseBoolean(splitInput[6]);
 					boolean parsedEBook = Boolean.parseBoolean(splitInput[7]);
 					boolean parsedAudioBook = Boolean.parseBoolean(splitInput[8]);
@@ -156,7 +158,7 @@ public interface Library {
 		}
 	}
 	
-	public default void contents(ArrayList<Items> library, ArrayList<Items> libraryContents) {	//write contents to file, then read file to libraryContents
+	public void contents(ArrayList<Items> library, ArrayList<Items> libraryContents) {	//write contents to file, then read file to libraryContents
 		try {
 			String[] Z = new String[library.size()];
 			
