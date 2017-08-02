@@ -1,4 +1,4 @@
-package garageObjects;
+package garage;
 
 public class Motorcycle extends Vehicle{
 	protected boolean muffled;

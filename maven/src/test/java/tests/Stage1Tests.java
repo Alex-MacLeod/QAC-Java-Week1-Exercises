@@ -36,9 +36,9 @@ public class Stage1Tests {
 		assertEquals(testShip.getType(), testFleet.get(0).getType());
 	}
 	
-	@Test
+	/*@Test
 	public void testPositionShip() {
 		
 		
-	}
+	}*/
 }

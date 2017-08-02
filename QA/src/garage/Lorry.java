@@ -1,4 +1,4 @@
-package garageObjects;
+package garage;
 
 public class Lorry extends Vehicle{
 	protected int maxFreight;

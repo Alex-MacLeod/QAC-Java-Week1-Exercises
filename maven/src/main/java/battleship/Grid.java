@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Grid {
 	protected int dimension;
-	ArrayList<Ship> navy;
+	protected ArrayList<Ship> navy;
 		public Grid(int dimension, ArrayList<Ship> navy) {
 			this.dimension = dimension;
 			this.navy = navy;

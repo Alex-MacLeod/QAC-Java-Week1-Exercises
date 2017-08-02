@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class Library {
 
+	protected ArrayList<Items> libraryContents = new ArrayList<Items>();
+	
 	public Items search(ArrayList<Items> library, String name) { // define method to search library
 		for (int i = 0; i < library.size(); i++) {
 			if (library.get(i).name.equals(name)) {
@@ -72,7 +74,7 @@ public class Library {
 	}
 	
 	public void checkOutItem(ArrayList<Items> library, Customers c, String name) { // check out Item
-		if (search(library, name).onLoan == false) {
+		if (!search(library, name).onLoan) {
 			Items a = search(library, name);
 			a.setOnLoan(true);
 			a.setLoanExpiry(14);
@@ -112,8 +114,6 @@ public class Library {
 					+ c.postCode);
 		}
 	}*/
-	
-	protected ArrayList<Items> libraryContents = new ArrayList<Items>();
 	
 	public void writeContents(ArrayList<Items> library, PrintWriter write, String[] Z) { //write library contents to file
 		for (Items t : library) {

@@ -1,4 +1,4 @@
-package garageObjects;
+package garage;
 //16 Garage
 public abstract class Vehicle {
 	protected String make;					//define attributes

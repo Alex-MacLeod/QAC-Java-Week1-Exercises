@@ -2,9 +2,7 @@ package objects;
 import java.util.Arrays;
 
 public class PrimeNumbers {
-	public PrimeNumbers() {
-		
-	}
+	
 	public int generatePrimes(int limit) {	//not originally my code. Based off algorithm called "Sieve of Atkin"
 											//Also, for some reason, it doesn't give accurate number of primes for 1 billion and above.
 		

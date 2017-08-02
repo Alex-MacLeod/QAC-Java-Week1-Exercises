@@ -13,7 +13,7 @@ public class Factorial {
 		int i=0;										//define i and dummy value k
 		double k = n;
 		
-		while (!(k==1)) {								//loop until k==1
+		while (k!=1) {								//loop until k==1
 			i= i+1;
 			k = (k/i);									//divide by i (# loops)
 			if (k<1) {									//if fraction below 1, return NONE

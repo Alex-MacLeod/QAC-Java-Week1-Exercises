@@ -1,4 +1,4 @@
-package garageObjects;
+package garage;
 
 public class Car extends Vehicle{
 	protected boolean fourWheelDrive;
