@@ -38,8 +38,8 @@ public class PeopleList {
 			Scanner scanner = new Scanner(new File("C:\\Users\\Administrator\\Documents\\dummy.txt")); // scan from file
 			ArrayList<People> persons = new ArrayList<People>(); 						// create new ArrayList to be read into
 			String line = "";
-			while (scanner.hasNextLine() && (line = scanner.nextLine()) != "") {
-				if (line != "" && line != "\n"&& line.length() > 1) {					//remove spaces/line breaks
+			while (scanner.hasNextLine() && (!"".equals(line = scanner.nextLine()))) {
+				if ( !"".equals(line) && !"\n".equals(line) && line.length() > 1) {					//remove spaces/line breaks
 					String[] splitInput = line.split(", "); 							// separating by ", ", split each line into an array of 3
 					int parsedInput = Integer.parseInt(splitInput[1]);					//parse 2nd elements into int
 					persons.add(new People(splitInput[0], parsedInput, splitInput[2])); //add new objects in new ArrayList

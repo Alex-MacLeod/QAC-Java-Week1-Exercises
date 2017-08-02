@@ -1,7 +1,6 @@
 package battleship;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Position {
 	
@@ -24,23 +23,23 @@ public class Position {
 	public int[][] positionShip(Ship S) {
 		int[][] shipCoordinates = new int[S.length][2];
 		System.out.println("Enter x coordinate for bow");
-		Scanner scan = new Scanner(System.in);
-		int xBow = scan.nextInt();
+		int xBow = Input.scan.nextInt();
 		System.out.println("Enter y coordinate for bow");
-		int yBow = scan.nextInt();
+		int yBow = Input.scan.nextInt();
 		System.out.println("Facing N, E, S, W?");
-		String faces = scan.next();
-		int xStern = 0, yStern = 0;
-		if (faces.equals("N")) {
+		String faces = Input.scan.next();
+		int xStern = 0;
+		int yStern = 0;
+		if ("N".equals(faces)) {
 			xStern = xBow;
 			yStern = yBow +1;
-		} else if (faces.equals("E")) {
+		} else if ("E".equals(faces)) {
 			xStern = xBow -1;
 			yStern = yBow;
-		} else if (faces.equals("S")) {
+		} else if ("S".equals(faces)) {
 			xStern = xBow;
 			yStern = yBow -1;
-		} else if (faces.equals("W")) {
+		} else if ("W".equals(faces)) {
 			xStern = xBow +1;
 			yStern = yBow;
 		} else {

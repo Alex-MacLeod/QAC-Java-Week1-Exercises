@@ -15,7 +15,9 @@ public class JUnitTest {
 	@Test
 	public void testUniqueSum() {
 		UniqueSum testUniqueSum = new UniqueSum();
-		int A = 1, B = 1, C = 1;
+		int A = 1;
+		int B = 1;
+		int C = 1;
 		assertEquals("uniqueSum must give 0 if all elements are the same",0,testUniqueSum.uniqueSum(A, B, C));
 	}
 	@Test

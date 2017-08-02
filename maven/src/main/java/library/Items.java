@@ -1,12 +1,12 @@
 package library;
 
 public abstract class Items {
-	String name;					//define attributes
-	int iD;
-	String author;
-	int year;
-	boolean onLoan;
-	int loanExpiry;
+	protected String name;					//define attributes
+	protected int iD;
+	protected String author;
+	protected int year;
+	protected boolean onLoan;
+	protected int loanExpiry;
 		public Items(String name, int iD, String author, int year, boolean onLoan, int loanExpiry) {
 			this.name = name;
 			this.iD = iD;

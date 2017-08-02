@@ -16,14 +16,14 @@ public class NumberGame {
         int guess = 50;												//set initial guess as 50
         System.out.println ("Hello!");
         System.out.println ("My first guess is " + guess + ".");
-        while (!(f.equals("CORRECT"))) {							//loop until CORRECT
+        while (!"CORRECT".equals(f)) {							//loop until CORRECT
 			System.out.println ("Is it HIGHER, LOWER, or CORRECT?");
 			f = scan.nextLine();									//enter string into console
-			if (f.equals("LOWER")) {
+			if ("LOWER".equals(f)) {
         		max = guess;										//if LOWER, set max to latest guess
-        	} else if (f.equals("HIGHER")) {
+        	} else if ("HIGHER".equals(f)) {
         		min = guess;										//if HIGHER, set min to latest guess
-        	} else if (f.equals("CORRECT")) {
+        	} else if ("CORRECT".equals(f)) {
         		break;												//leave loop if CORRECT
         	} else {
         		System.out.println ("Sorry, I didn't understand that.");

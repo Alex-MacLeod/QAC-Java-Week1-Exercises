@@ -14,7 +14,7 @@ public class CountPrimes {
 			int min;
 			System.out.println ("Specify lower limit?");
 			String b = scan.nextLine();
-				if (b.equals("YES")) {
+				if ("YES".equals(b)) {
 					System.out.println ("Enter lower limit: ");
 					String c = scan.nextLine();
 					min = Integer.parseInt(c);

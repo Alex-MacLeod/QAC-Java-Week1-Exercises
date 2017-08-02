@@ -18,7 +18,7 @@ public class Garage {
 			}
 		
 		for (int v=0; v<garage.size(); v++) {
-	    	if(garage.get(v).numberPlate == "M0N 34Y")															//remove objects from ArrayList
+	    	if("M0N 34Y".equals(garage.get(v).numberPlate))															//remove objects from ArrayList
 	    		garage.remove(v);
 			}
 	    
@@ -40,7 +40,7 @@ public class Garage {
 	    			System.out.println("Repairing the " + garage.get(v).make + " " + garage.get(v).model + " will cost £" + garage.get(v).repairCost());
 	  		}
 	    
-	         if (garage.isEmpty()==true) {
+	         if (garage.isEmpty()) {
 			System.out.println("No vehicles in garage.");														//print if garage is empty
 		 } else {
 			for (int j=0; j<garage.size(); j++) {

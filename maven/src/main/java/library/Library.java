@@ -113,7 +113,7 @@ public class Library {
 		}
 	}*/
 	
-	ArrayList<Items> libraryContents = new ArrayList<Items>();
+	protected ArrayList<Items> libraryContents = new ArrayList<Items>();
 	
 	public void writeContents(ArrayList<Items> library, PrintWriter write, String[] Z) { //write library contents to file
 		for (Items t : library) {
@@ -125,30 +125,30 @@ public class Library {
 	public void readToLibraryContents(Scanner scan, String[] Z, ArrayList<Items> libraryContents) {	//
 		String line = "";
 		int k=0;
-		while (scan.hasNextLine() && (line = scan.nextLine()) != "") {
-			if (line != "" && line != "\n"&& line.length() > 1) {
+		while (scan.hasNextLine() &&  !"".equals((line = scan.nextLine()))) {
+			if (!"".equals(line) && !"\n".equals(line) && line.length() > 1) {
 				String[] splitInput = line.split(", ");
 				int parsedID = Integer.parseInt(splitInput[1]);
 				int parsedYear = Integer.parseInt(splitInput[3]);
 				boolean parsedOnLoan = Boolean.parseBoolean(splitInput[4]);
 				int parsedLoanExpiry = Integer.parseInt(splitInput[5]);
 				
-				if (Z[k].equals("Books")) {
+				if ("Books".equals(Z[k])) {
 					boolean parsedFiction = Boolean.parseBoolean(splitInput[6]);
 					boolean parsedEBook = Boolean.parseBoolean(splitInput[7]);
 					boolean parsedAudioBook = Boolean.parseBoolean(splitInput[8]);
 					boolean parsedForKids = Boolean.parseBoolean(splitInput[9]);
 					libraryContents.add(new Books(splitInput[0], parsedID, splitInput[2], parsedYear, parsedOnLoan,
 							parsedLoanExpiry, parsedFiction, parsedEBook, parsedAudioBook, parsedForKids));
-				} else if (Z[k]=="Magazines"){
+				} else if ("Magazines".equals(Z[k])){
 					boolean parsedEMag = Boolean.parseBoolean(splitInput[6]);
 					int parsedIssueNum = Integer.parseInt(splitInput[7]);
 					libraryContents.add(new Magazines(splitInput[0], parsedID, splitInput[2], parsedYear, parsedOnLoan,
 							parsedLoanExpiry, parsedEMag, parsedIssueNum));
-				} else if (Z[k]=="Maps") {
+				} else if ("Maps".equals(Z[k])) {
 					libraryContents.add(new Maps(splitInput[0], parsedID, splitInput[2], parsedYear, parsedOnLoan,
 							parsedLoanExpiry, splitInput[6]));
-				} else if (Z[k]=="Records") {
+				} else if ("Records".equals(Z[k])) {
 					boolean parsedDigitised = Boolean.parseBoolean(splitInput[6]);
 					libraryContents.add(new Records(splitInput[0], parsedID, splitInput[2], parsedYear, parsedOnLoan,
 							parsedLoanExpiry, parsedDigitised, splitInput[7]));
