@@ -1,10 +1,10 @@
 package library;
 
 public class Books extends Items{
-	boolean fiction;
-	boolean eBook;
-	boolean audioBook;
-	boolean forKids;
+	private boolean fiction;
+	private boolean eBook;
+	private boolean audioBook;
+	private boolean forKids;
 		public Books(String name, int iD, String author, int year, boolean onLoan, int loanExpiry, boolean fiction, boolean eBook, boolean audioBook, boolean forKids) {
 			super(name, iD, author, year, onLoan, loanExpiry);
 			this.fiction = fiction;

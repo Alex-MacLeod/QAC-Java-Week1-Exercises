@@ -11,7 +11,7 @@ import battleship.Ship;
 
 public class Stage1Tests {
 
-	Position test = new Position();
+	private Position test = new Position();
 	
 	@Test
 	public void testBuildGrid() {

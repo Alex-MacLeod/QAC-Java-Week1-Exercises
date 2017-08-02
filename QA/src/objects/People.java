@@ -1,14 +1,14 @@
 package objects;
 //15 People
 public class People {
+	private String name;
+	protected int age;
+	private String jobTitle;
 	public People(String a, int b, String c) {
 		name = a;
 		age = b;
 		jobTitle = c;
 	}
-	String name;
-	int age;
-	String jobTitle;
 	public String details () {
 		return "My name is " + name + ", I'm " + age + " years old, and I'm a " + jobTitle;
 	}

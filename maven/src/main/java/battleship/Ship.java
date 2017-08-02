@@ -1,8 +1,8 @@
 package battleship;
 
 public class Ship {
-	String type;
-	int length;
+	protected String type;
+	protected int length;
 	//int hits;
 	//boolean isHit;
 	public Ship(String type, int length) {

@@ -1,8 +1,8 @@
 package library;
 
 public class Records extends Items{
-	boolean digitised;
-	String type;
+	private boolean digitised;
+	private String type;
 		public Records(String name, int iD, String author, int year, boolean onLoan, int loanExpiry, boolean digitised, String type) {
 			super(name, iD, author, year, onLoan, loanExpiry);
 			this.digitised = digitised;

@@ -16,7 +16,12 @@ public class Position {
 		navy.add(S);
 	}
 	
-	public int[][] positionShip(Ship S, int[][] grid) {
+	public int[][] setCoordinates(int[][] shipCoordinates, int xBow, int yBow, int xStern, int yStern) {
+		
+		return shipCoordinates;
+	}
+	
+	public int[][] positionShip(Ship S) {
 		int[][] shipCoordinates = new int[S.length][2];
 		System.out.println("Enter x coordinate for bow");
 		Scanner scan = new Scanner(System.in);
@@ -25,18 +30,23 @@ public class Position {
 		int yBow = scan.nextInt();
 		System.out.println("Facing N, E, S, W?");
 		String faces = scan.next();
+		int xStern = 0, yStern = 0;
 		if (faces.equals("N")) {
-			shipCoordinates = {{xBow, yBow},{xBow,yBow + 1}};
+			xStern = xBow;
+			yStern = yBow +1;
 		} else if (faces.equals("E")) {
-			
+			xStern = xBow -1;
+			yStern = yBow;
 		} else if (faces.equals("S")) {
-			
+			xStern = xBow;
+			yStern = yBow -1;
 		} else if (faces.equals("W")) {
-			
+			xStern = xBow +1;
+			yStern = yBow;
 		} else {
-			
+			System.out.println("Did not recognise input");
 		}
-		
+		setCoordinates(shipCoordinates, xBow, yBow, xStern, yStern);
 		return shipCoordinates;
 	}
 }

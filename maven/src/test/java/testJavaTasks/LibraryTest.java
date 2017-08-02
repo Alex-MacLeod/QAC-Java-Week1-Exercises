@@ -20,7 +20,7 @@ import library.Library;
 @SuppressWarnings("unused")
 public class LibraryTest {
 	
-	Library test = new Library();
+	private Library test = new Library();
 	
 	@Test
 	public void testAddNew() {

@@ -1,8 +1,8 @@
 package library;
 
 public class Magazines extends Items{
-	boolean eMag;
-	int issueNum;
+	private boolean eMag;
+	private int issueNum;
 		public Magazines(String name, int iD, String author, int year, boolean onLoan, int loanExpiry, boolean eMag, int issueNum) {
 			super(name, iD, author, year, onLoan, loanExpiry);
 			this.eMag = eMag;

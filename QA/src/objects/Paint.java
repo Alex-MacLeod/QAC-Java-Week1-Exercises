@@ -2,10 +2,11 @@ package objects;
 //17 Paint Wizard
 
 public class Paint {
-	double costPerTin;
-	int litresPerTin;
-	String productName;
-	int areaPerLitre;
+	private double costPerTin;
+	private int litresPerTin;
+	protected String productName;
+	private int areaPerLitre;
+	private double roomSize = 220;									//declare area of room to be painted
 	
 	public Paint(String a, double e, int c, int d) {
 		productName = a;
@@ -13,7 +14,6 @@ public class Paint {
 		litresPerTin = c;
 		areaPerLitre = d;
 	}
-	double roomSize = 220;									//declare area of room to be painted
 	public int coverage(){									//coverage = area/tin, # m^2 a single tin can paint
 		return areaPerLitre*litresPerTin;
 	}

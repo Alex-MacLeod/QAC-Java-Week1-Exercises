@@ -3,7 +3,7 @@ package battleship;
 import java.util.ArrayList;
 
 public class Grid {
-	int dimension;
+	protected int dimension;
 	ArrayList<Ship> navy;
 		public Grid(int dimension, ArrayList<Ship> navy) {
 			this.dimension = dimension;

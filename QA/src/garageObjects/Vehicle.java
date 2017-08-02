@@ -1,18 +1,18 @@
 package garageObjects;
 //16 Garage
 public abstract class Vehicle {
-	String make;					//define attributes
-	int maxSpeed;
-	int horsepower;
-	String fuelType;
-	String colour;
-	boolean automatic;
-	int runningCost;
-	int mileage;
-	boolean insured;
-	String model;
-	String numberPlate;
-	boolean needsRepair;
+	protected String make;					//define attributes
+	protected int maxSpeed;
+	protected int horsepower;
+	protected String fuelType;
+	protected String colour;
+	protected boolean automatic;
+	protected int runningCost;
+	protected int mileage;
+	protected boolean insured;
+	protected String model;
+	protected String numberPlate;
+	protected boolean needsRepair;
 	
 	public Vehicle(String a, int b, int c, String d, String e, boolean f, int g, int h, boolean k, String l, String n, boolean r) {				
 			make = a;

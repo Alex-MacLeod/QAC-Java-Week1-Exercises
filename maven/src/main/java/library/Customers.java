@@ -1,14 +1,14 @@
 package library;
 
 public class Customers {
-	String forename;
-	String surname;
-	String dateOfBirth;
-	int customerID;
-	String address1;
-	String address2;
-	String address3;
-	String postCode;
+	protected String forename;
+	protected String surname;
+	private String dateOfBirth;
+	protected int customerID;
+	private String address1;
+	private String address2;
+	private String address3;
+	private String postCode;
 		public Customers(String forename, String surname, String dateOfBirth, int customerID, String address1, String address2, String address3, String postCode) {
 				this.forename = forename;
 				this.surname = surname;
